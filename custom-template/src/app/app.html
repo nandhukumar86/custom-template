@@ -1,3 +1,26 @@
-<button (click)="downloadPDF()">Download PDF</button>
+<div>
+  <button (click)="downloadPdf()">Download PDF</button>
+</div>
 
-<app-a4-page></app-a4-page>
+<!-- 🔥 Scrollable A4 Preview -->
+<div style="overflow-y: auto; max-height: 90vh;">
+  <div
+    *ngFor="let page of pages; let pageIndex = index"
+    class="a4-page"
+    id="a4-content-{{ pageIndex }}"
+  >
+    <ng-container *ngFor="let item of page.items">
+      <div
+        [ngStyle]="{
+          position: 'absolute',
+          left: item.x + 'mm',
+          top: item.y + 'mm',
+          width: item.width + 'mm',
+          height: item.height + 'mm'
+        }"
+      >
+        <app-text-box  *ngIf="item.type === 'text'" [text]="item.data.text"></app-text-box>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { A4PageComponent } from './a4-page/a4-page';
 import { PdfGenerator } from './pdf-generator';
+import { CommonModule } from '@angular/common';
+import { TextBox } from './text-box/text-box';
+
 
 @Component({
   selector: 'app-root',
-  imports: [A4PageComponent],
+  imports: [CommonModule, TextBox],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true
@@ -13,28 +15,52 @@ import { PdfGenerator } from './pdf-generator';
 export class App {
   protected title = 'custom-template';
 
+  pages = [
+    {
+      pageNumber: 0,
+      items: [
+        {
+          type: 'text',
+          x: 20,
+          y: 30,
+          width: 80,
+          height: 20,
+          data: { text: 'Visit First Box <a href="https://openai.com" target="_blank">OpenAI</a>' },
+        },
+        {
+          type: 'text',
+          x: 100,
+          y: 200,
+          width: 70,
+          height: 30,
+          data: { text: 'Visit Second Box <a href="https://openai.com" target="_blank">OpenAI</a>' },
+        },
+      ],
+    },
+    {
+      pageNumber: 1,
+      items: [
+        {
+          type: 'text',
+          x: 50,
+          y: 100,
+          width: 60,
+          height: 25,
+          data: { text: 'Visit another Box <a href="https://openai.com" target="_blank">OpenAI</a>' },
+        }
+      ],
+    },
+  ];
+
   constructor(private pdfService: PdfGenerator) { }
 
-  downloadPDF() {
-    //this.pdfService.downloadA4('a4-content', 'a4-document.pdf');
+  downloadPdf() {
+  const totalPages = this.pages.length;
 
+  this.pdfService.downloadMultiPageA4WithAutoLinksByViewList(
+    this.pages,
+    'document.pdf'
+  );
+}
 
-    // this.pdfService.downloadA4WithLinks('a4-content', 'file.pdf', [
-    //   {
-    //     text: 'OpenAI',
-    //     x: 20, // mm from left
-    //     y: 50, // mm from top
-    //     url: 'https://openai.com',
-    //   },
-    //   {
-    //     text: 'Google',
-    //     x: 50,
-    //     y: 100,
-    //     url: 'https://google.com',
-    //   },
-    // ]);
-
-
-    this.pdfService.downloadA4WithAutoLinks('a4-content', 'document.pdf');
-  }
 }
