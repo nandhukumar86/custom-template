@@ -19,7 +19,7 @@
           height: item.height + 'mm'
         }"
       >
-        <app-text-box *ngIf="item.type == 'text'" [text]="item.data.text"></app-text-box>
+        <app-text-box *ngIf="item.type == 'text'"></app-text-box>
 
         <app-table-box *ngIf="item.type == 'table'"></app-table-box>
       </div>
