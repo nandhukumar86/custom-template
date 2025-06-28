@@ -10,7 +10,7 @@ import { FrontCover } from './front-cover/front-cover';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, TextBox, TableBox, Graph1,FrontCover],
+  imports: [CommonModule, TextBox, TableBox, Graph1, FrontCover],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true
@@ -26,8 +26,8 @@ export class App {
           type: 'front-cover',
           x: 0,
           y: 0,
-          width: 210,
           height: 297,
+          width: 210,
         }
       ],
     },
@@ -38,22 +38,22 @@ export class App {
           type: 'text',
           x: 20,
           y: 30,
-          width: 80,
           height: 20,
+          width: 80,
         },
         {
           type: 'text',
           x: 100,
           y: 200,
-          width: 70,
           height: 30,
+          width: 70,
         },
-         {
+        {
           type: 'graph1',
           x: 50,
           y: 75,
-          width: 100,
           height: 80,
+          width: 100,
         },
       ],
     },
@@ -64,16 +64,16 @@ export class App {
           type: 'text',
           x: 20,
           y: 30,
-          width: 100,
           height: 20,
+          width: 100,
         },
         {
           type: 'table',
           x: 50,
           y: 100,
-          width: 150,
           height: 100,
-        },
+          width: 120,
+        }
       ],
     },
   ];
