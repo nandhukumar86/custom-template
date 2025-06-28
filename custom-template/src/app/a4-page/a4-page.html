@@ -1,1 +1,14 @@
-<p>a4-page works!</p>
+<div id="a4-content" class="a4-page">
+  <div
+    *ngFor="let item of items"
+    class="item"
+    [ngStyle]="{
+      left: item.x + 'mm',
+      top: item.y + 'mm',
+      width: item.width + 'mm',
+      height: item.height + 'mm'
+    }"
+  >
+    <app-text-box *ngIf="item.type === 'text'" [text]="item.data.text"></app-text-box>
+  </div>
+</div>

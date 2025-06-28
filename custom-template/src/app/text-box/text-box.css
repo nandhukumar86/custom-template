@@ -1,0 +1,12 @@
+.text-box {
+  border: 1px dashed gray;
+  padding: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
