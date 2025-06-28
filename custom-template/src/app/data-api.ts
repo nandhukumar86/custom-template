@@ -13,4 +13,14 @@ export class DataApi {
   getSampleData(): Observable<any[]> {
     return this.http.get<any[]>('https://jsonplaceholder.typicode.com/users');
   }
+
+  getChartData(): Observable<{ name: string; value: number }[]> {
+    // Example with mock data
+    return of([
+      { name: 'Apples', value: 10 },
+      { name: 'Bananas', value: 15 },
+      { name: 'Oranges', value: 7 },
+      { name: 'Mangoes', value: 12 },
+    ]);
+  }
 }
