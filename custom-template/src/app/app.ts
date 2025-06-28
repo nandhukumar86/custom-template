@@ -19,7 +19,7 @@ export class App {
 
   pages = [
     {
-      pageNumber: 0,
+      pageNumber: 1,
       items: [
         {
           type: 'text',
@@ -40,12 +40,12 @@ export class App {
           x: 50,
           y: 75,
           width: 100,
-          height: 75,
+          height: 80,
         },
       ],
     },
     {
-      pageNumber: 1,
+      pageNumber: 2,
       items: [
         {
           type: 'text',
@@ -59,7 +59,7 @@ export class App {
           x: 50,
           y: 100,
           width: 100,
-          height: 75,
+          height: 100,
           data: { text: '' },
         },
       ],
