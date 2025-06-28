@@ -9,8 +9,6 @@ export class PdfGenerator {
 
   constructor() { }
 
-  
-
   async downloadMultiPageA4WithAutoLinksByViewList(
     pages: any[],
     fileName: string = 'document.pdf'

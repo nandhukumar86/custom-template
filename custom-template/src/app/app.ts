@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { TextBox } from './text-box/text-box';
 import { TableBox } from './table-box/table-box';
 import { Graph1 } from './graph1/graph1';
+import { FrontCover } from './front-cover/front-cover';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, TextBox, TableBox, Graph1],
+  imports: [CommonModule, TextBox, TableBox, Graph1,FrontCover],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true
@@ -18,6 +19,18 @@ export class App {
   protected title = 'custom-template';
 
   pages = [
+    {
+      pageNumber: 0,
+      items: [
+        {
+          type: 'front-cover',
+          x: 0,
+          y: 0,
+          width: 210,
+          height: 297,
+        }
+      ],
+    },
     {
       pageNumber: 1,
       items: [
@@ -58,9 +71,8 @@ export class App {
           type: 'table',
           x: 50,
           y: 100,
-          width: 100,
+          width: 150,
           height: 100,
-          data: { text: '' },
         },
       ],
     },
